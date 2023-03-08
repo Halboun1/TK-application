@@ -11,28 +11,27 @@ def calculate(*args):
 root = Tk()
 root.title("Feet to Meters")
 
-mainframe = ttk.Frame(root, padding="3 3 12 12")
-mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
-root.columnconfigure(0, weight=1)
-root.rowconfigure(0, weight=1)
+mainframe = ttk.Frame(root, padding="20 20 20 20")          #padding from the frame to the entire window.
+mainframe.pack()                                            #mainframe is the child of root
 
 feet = StringVar()
-feet_entry = ttk.Entry(mainframe, width=7, textvariable=feet)
-feet_entry.grid(column=2, row=1, sticky=(W, E))
+feet_entry = ttk.Entry(mainframe, width=7, textvariable=feet)       #creating an entry widget with a value of "feet" line 17
+feet_entry.grid(row=0,column=0)                                    #important step in order to show the widget on the screen.
 
-meters = StringVar()
-ttk.Label(mainframe, textvariable=meters).grid(column=2, row=2, sticky=(W, E))
+meters = StringVar()                                                
+ttk.Label(mainframe, textvariable=meters).grid(row=0,column=2)     #creating a lable widget.
+                                                                    #important step to show the widget on the screen.
+                                                                    
+                                                                    
+ttk.Button(mainframe, text="Calculate", command=calculate).grid(row=1,column=1)
 
-ttk.Button(mainframe, text="Calculate", command=calculate).grid(column=3, row=3, sticky=W)
+ttk.Label(mainframe, text="feet is equivalent to").grid(row=0,column=1)
+ttk.Label(mainframe, text="meters").grid(row=0,column=3)
 
-ttk.Label(mainframe, text="feet").grid(column=3, row=1, sticky=W)
-ttk.Label(mainframe, text="is equivalent to").grid(column=1, row=2, sticky=E)
-ttk.Label(mainframe, text="meters").grid(column=3, row=2, sticky=W)
-
-for child in mainframe.winfo_children(): 
-    child.grid_configure(padx=5, pady=5)
+for child in mainframe.winfo_children():                            #creating a padding inside the parent window.
+    child.grid_configure(padx=1, pady=1)                            #mainly for every widget inside the children
 
 feet_entry.focus()
-root.bind("<Return>", calculate)
+root.bind("<Return>",calculate)
 
 root.mainloop()
