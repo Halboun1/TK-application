@@ -9,24 +9,27 @@ def calculate(*args):
     except ValueError:
         pass
 
+def button_pressed():
+    print("Button is pressed")
+
 root = Tk()
 root.title("Feet to Meters")
 root.geometry('500x400')
 
-
+img = PhotoImage(file='transfer.png').subsample(30)
 
 # create a button
-button = Button(root, text='Button')
-
+button = Button(root, text='Button',image=img)
+if 
 # define the text for the tooltip
-tooltip_text = 'Hello'
+tooltip_text = 'Convert from Meters to Feet'
 
 create_tooltip(button, tooltip_text)
 
 button.pack()
 
 
-img = PhotoImage(file='transfer.png').subsample(30)
+
 
 mainframe = Frame(root,borderwidth=4,highlightcolor='red')           #padding from the frame to the entire window.
 mainframe.pack()                                                                        #mainframe is the child of root
@@ -42,7 +45,7 @@ ttk.Label(mainframe, textvariable=meters).grid(row=0,column=2)     #creating a l
                                                                     #important step to show the widget on the screen.
                                                                     
                                                                     
-ttk.Button(mainframe, text="Calculate",image=img, command=calculate).grid(row=1,column=1)
+ttk.Button(mainframe, text="Calculate", command=calculate).grid(row=1,column=1)
 
 ttk.Label(mainframe, text="feet is equivalent to").grid(row=0,column=1)
 ttk.Label(mainframe, text="meters").grid(row=0,column=3)

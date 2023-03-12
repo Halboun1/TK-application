@@ -15,7 +15,7 @@ class ToolTip:
         y += self.widget.winfo_rooty() + 20
         self.tip_window = tw = tk.Toplevel(self.widget)
         tw.wm_overrideredirect(True)
-        tw.wm_geometry("+%d+%d" % (x + 30, y - 18))
+        tw.wm_geometry("+%d+%d" % (x , y - 18))
         label = tk.Label(tw, text=self.text, justify=tk.LEFT,
                       background="#FFFFFF", relief=tk.SOLID, borderwidth=1,
                       font=("tahoma", "10", "normal"))
