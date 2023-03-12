@@ -16,11 +16,32 @@ root = Tk()
 root.title("Feet to Meters")
 root.geometry('500x400')
 
+# 1) Step one create the frame that will hold everything.
+# 2) Create the widgets for everything.
+#   2.1) Create an Entry widget.
+#   2.2) Create a Label Widget.
+#   2.3) Create a label widget that calculate the equation.
+#   2.4) Create a Button that perform the calculation.
+#   2.5) Create a Button that will Swap the equation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 img = PhotoImage(file='transfer.png').subsample(30)
 
 # create a button
-button = Button(root, text='Button',image=img)
-if 
+button = Button(root, text='Button',image=img,command=button_pressed)
+
 # define the text for the tooltip
 tooltip_text = 'Convert from Meters to Feet'
 
