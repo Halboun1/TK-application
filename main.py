@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from toolTip import *
 
 def calculate(*args):
     try:
@@ -10,9 +11,27 @@ def calculate(*args):
 
 root = Tk()
 root.title("Feet to Meters")
+root.geometry('500x400')
 
-mainframe = ttk.Frame(root, padding="20 20 20 20")          #padding from the frame to the entire window.
-mainframe.pack()                                            #mainframe is the child of root
+
+
+# create a button
+button = Button(root, text='Button')
+
+# define the text for the tooltip
+tooltip_text = 'Hello'
+
+create_tooltip(button, tooltip_text)
+
+button.pack()
+
+
+img = PhotoImage(file='transfer.png').subsample(30)
+
+mainframe = Frame(root,borderwidth=4,highlightcolor='red')           #padding from the frame to the entire window.
+mainframe.pack()                                                                        #mainframe is the child of root
+
+
 
 feet = StringVar()
 feet_entry = ttk.Entry(mainframe, width=7, textvariable=feet)       #creating an entry widget with a value of "feet" line 17
@@ -23,7 +42,7 @@ ttk.Label(mainframe, textvariable=meters).grid(row=0,column=2)     #creating a l
                                                                     #important step to show the widget on the screen.
                                                                     
                                                                     
-ttk.Button(mainframe, text="Calculate", command=calculate).grid(row=1,column=1)
+ttk.Button(mainframe, text="Calculate",image=img, command=calculate).grid(row=1,column=1)
 
 ttk.Label(mainframe, text="feet is equivalent to").grid(row=0,column=1)
 ttk.Label(mainframe, text="meters").grid(row=0,column=3)
@@ -33,5 +52,6 @@ for child in mainframe.winfo_children():                            #creating a 
 
 feet_entry.focus()
 root.bind("<Return>",calculate)
+
 
 root.mainloop()
